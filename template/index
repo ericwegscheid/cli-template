@@ -3,6 +3,7 @@
 _UTILNAME_cli_commands="
   UTILNAME help
   UTILNAME dev
+  UTILNAME test
 "
 
 # display help
@@ -23,26 +24,27 @@ UTILNAME() {
   local param1=$2
   local param2=$3
 
-  if [ -z "${command:-}" ] || [ $command = 'help' ]; then
+  # open project {
+  if [ -z "${command:-}" ]; then
+    cd $_UTILNAME_cli_dir && vim
+  # }
+  # UTILNAME help {
+  elif [ $command = 'help' ]; then
     _UTILNAME_cli_help
-    return 0
-  fi
-
+  # }
   # UTILNAME dev {
   if [ $command = 'dev' ]; then
-    echo 'TODO: IMPLEMENT'
-    # vim PATH_TO_THIS_FILE
+    vim $_UTILNAME_cli_dir/index
   # }
-  #
   # UTILNAME test {
   elif [ $command = 'test' ]; then
     echo 'no tests'
   # }
-  #
-  # display help
+  # display help when invalid command is provided {
   else
     _UTILNAME_cli_help
   fi
+  # }
 }
 
 _UTILNAME_cli_complete() {
