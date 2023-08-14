@@ -9,7 +9,7 @@ fi
 if grep -Fxq "source $(pwd)/index" "$_dst_init_file"; then
   echo "This CLI is already installed."
 else
-  sed -i "3i\_budget_cli_dir=$(pwd)" ./index
+  sed -i "3i\_UTILNAME_cli_dir=$(pwd)" ./index
   echo "source $(pwd)/index" >> $_dst_init_file
   echo "CLI, $(pwd)/index, successfully installed!"
 fi

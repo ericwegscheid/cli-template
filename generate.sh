@@ -9,6 +9,7 @@ _install_cli() {
   mkdir $_cli_location
   cp template/* $_cli_location/
   sed -i "s/UTILNAME/$_cli_name/g" $_cli_location/index
+  sed -i "s/UTILNAME/$_cli_name/g" $_cli_location/install.sh
   sed -i "s/UTILNAME/$_cli_name/g" $_cli_location/README.md
   sed -i "3i\_$(echo $_cli_name)_cli_dir=$_cli_location" $_cli_location/index
   echo "CLI at $_cli_location/index has been successfully installed!"
