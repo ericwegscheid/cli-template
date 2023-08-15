@@ -40,7 +40,7 @@ _install_cli_prompt_init_script() {
     echo "A source command will be appended to this file to source the index file in the CLI directory."
   fi
   read _init_script
-  _cli_init_script="${_cli_init_script/#\~/$HOME}"
+  _cli_init_script="${_init_script/#\~/$HOME}"
   if [ ! -f $_cli_init_script ]; then
     _install_cli_prompt_init_script 'invalid_input' $_cli_init_script
   fi
