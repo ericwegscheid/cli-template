@@ -33,7 +33,7 @@ UTILNAME() {
     _UTILNAME_cli_help
   # }
   # UTILNAME dev {
-  if [ $command = 'dev' ]; then
+  elif [ $command = 'dev' ]; then
     vim $_UTILNAME_cli_dir/index
   # }
   # UTILNAME test {
