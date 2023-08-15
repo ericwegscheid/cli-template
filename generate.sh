@@ -39,8 +39,9 @@ _install_cli_prompt_init_script() {
     echo -e "\nPlease provide a run command file or a shell initialization script, i.e. ~/.zshrc"
     echo "A source command will be appended to this file to source the index file in the CLI directory."
   fi
-  read _cli_init_script
-  if [ ! -f "${_cli_init_script/#\~/$HOME}" ]; then
+  read _init_script
+  _cli_init_script="${_cli_init_script/#\~/$HOME}"
+  if [ ! -f $_cli_init_script ]; then
     _install_cli_prompt_init_script 'invalid_input' $_cli_init_script
   fi
 }
