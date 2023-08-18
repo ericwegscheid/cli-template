@@ -24,9 +24,9 @@ UTILNAME() {
   local param1=$2
   local param2=$3
 
-  # open project {
+  # go to project {
   if [ -z "${command:-}" ]; then
-    cd $_UTILNAME_cli_dir && vim
+    cd $_UTILNAME_cli_dir
   # }
   # UTILNAME help {
   elif [ $command = 'help' ]; then
